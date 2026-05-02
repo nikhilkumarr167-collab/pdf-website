@@ -1,36 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-    <title>PDF Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nikhil Kumar | Official PDF Hub 🚀</title>
+    <meta name="description" content="Nikhil Kumar ki official website. Yahan PDFs upload aur view karein. Professional work by Nikhil.">
+    <meta name="keywords" content="Nikhil Kumar, Nikhil Kumar PDF, nikhilkumarr167-collab, PDF Viewer">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            text-align: center;
+        }
+        /* Blue Banner for Name */
+        .header-banner {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .header-banner h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+        .header-banner p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        input[type="file"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px dashed #007bff;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 90%;
+        }
+        #pdf-viewer {
+            width: 100%;
+            height: 550px;
+            border: 1px solid #eee;
+            margin-top: 20px;
+            display: none;
+            border-radius: 10px;
+        }
+        .footer {
+            margin-top: 50px;
+            color: #888;
+            font-size: 0.9rem;
+            padding-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>📚 Meri PDF Website</h1>
+    <div class="header-banner">
+        <h1>📄 Nikhil Kumar's Official PDF Hub</h1>
+        <p>Developer | Creator | Student</p>
+    </div>
 
-    <input type="file" id="pdfFile">
-    <button onclick="uploadPDF()">Upload PDF</button>
+    <div class="container">
+        <h3>Apni PDF File Select Karein</h3>
+        <p style="color: #666;">Ye website sirf aapke liye secure aur fast PDF view karti hai.</p>
+        
+        <input type="file" id="pdfFile" accept="application/pdf">
+        
+        <iframe id="pdf-viewer"></iframe>
+    </div>
 
-    <h2>Uploaded PDFs:</h2>
-    <ul id="pdfList"></ul>
+    <div class="footer">
+        © 2026 Nikhil Kumar | Built with ❤️ on GitHub
+    </div>
 
     <script>
-        function uploadPDF() {
-            let fileInput = document.getElementById("pdfFile");
-            let file = fileInput.files[0];
+        const fileInput = document.getElementById('pdfFile');
+        const pdfViewer = document.getElementById('pdf-viewer');
 
-            if (file) {
-                let list = document.getElementById("pdfList");
-                let li = document.createElement("li");
-
-                let link = document.createElement("a");
-                link.href = URL.createObjectURL(file);
-                link.textContent = file.name;
-                link.target = "_blank";
-
-                li.appendChild(link);
-                list.appendChild(li);
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && file.type === "application/pdf") {
+                const fileURL = URL.createObjectURL(file);
+                pdfViewer.src = fileURL;
+                pdfViewer.style.display = 'block';
+                // Success alert
+                console.log("PDF Loaded Successfully!");
+            } else {
+                alert("Bhai, please ek sahi PDF file select karein.");
             }
-        }
+        });
     </script>
 
 </body>
