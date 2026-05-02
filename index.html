@@ -3,108 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Nikhil Kumar | Official PDF Hub 🚀</title>
-    <meta name="description" content="Nikhil Kumar ki official website. Yahan PDFs upload aur view karein. Professional work by Nikhil.">
-    <meta name="keywords" content="Nikhil Kumar, Nikhil Kumar PDF, nikhilkumarr167-collab, PDF Viewer">
-
+    <title>Nikhil's SSC CGL PDF Hub 🚀</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            text-align: center;
-        }
-        /* Blue Banner for Name */
-        .header-banner {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            padding: 40px 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .header-banner h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-        }
-        .header-banner p {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        /* Main Container */
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-        input[type="file"] {
-            display: block;
-            margin: 20px auto;
-            padding: 10px;
-            border: 2px dashed #007bff;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 90%;
-        }
-        #pdf-viewer {
-            width: 100%;
-            height: 550px;
-            border: 1px solid #eee;
-            margin-top: 20px;
-            display: none;
-            border-radius: 10px;
-        }
-        .footer {
-            margin-top: 50px;
-            color: #888;
-            font-size: 0.9rem;
-            padding-bottom: 20px;
-        }
+        body { font-family: sans-serif; margin: 0; background: #f4f7f9; text-align: center; }
+        .header { background: #007bff; color: white; padding: 40px; }
+        .ad-slot { margin: 20px auto; max-width: 728px; min-height: 90px; background: white; border: 1px solid #ddd; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        iframe { width: 100%; height: 500px; display: none; margin-top: 20px; border-radius: 10px; }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>📚 Nikhil's Education & PDF Hub</h1>
+        <p>SSC CGL Study Materials & Official Viewer</p>
+    </div>
 
-    <div class="header-banner">
-        <h1>📄 Nikhil Kumar's Official PDF Hub</h1>
-        <p>Developer | Creator | Student</p>
+    <div class="ad-slot">
+        <script type="text/javascript">
+            atOptions = { 'key' : '87084c294ce16c1d5405c1e5c9408bbd', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/87084c294ce16c1d5405c1e5c9408bbd/invoke.js"></script>
     </div>
 
     <div class="container">
         <h3>Apni PDF File Select Karein</h3>
-        <p style="color: #666;">Ye website sirf aapke liye secure aur fast PDF view karti hai.</p>
-        
-        <input type="file" id="pdfFile" accept="application/pdf">
-        
-        <iframe id="pdf-viewer"></iframe>
-    </div>
-
-    <div class="footer">
-        © 2026 Nikhil Kumar | Built with ❤️ on GitHub
+        <input type="file" id="pdfInput" accept="application/pdf">
+        <iframe id="viewer"></iframe>
     </div>
 
     <script>
-        const fileInput = document.getElementById('pdfFile');
-        const pdfViewer = document.getElementById('pdf-viewer');
-
-        fileInput.addEventListener('change', function(e) {
+        document.getElementById('pdfInput').addEventListener('change', function(e) {
             const file = e.target.files[0];
-            if (file && file.type === "application/pdf") {
-                const fileURL = URL.createObjectURL(file);
-                pdfViewer.src = fileURL;
-                pdfViewer.style.display = 'block';
-                // Success alert
-                console.log("PDF Loaded Successfully!");
-            } else {
-                alert("Bhai, please ek sahi PDF file select karein.");
+            if (file) {
+                const url = URL.createObjectURL(file);
+                const f = document.getElementById('viewer');
+                f.src = url; f.style.display = "block";
             }
         });
     </script>
-
 </body>
 </html>
-
