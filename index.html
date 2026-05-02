@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Website</title>
+</head>
+<body>
+
+    <h1>📚 Meri PDF Website</h1>
+
+    <input type="file" id="pdfFile">
+    <button onclick="uploadPDF()">Upload PDF</button>
+
+    <h2>Uploaded PDFs:</h2>
+    <ul id="pdfList"></ul>
+
+    <script>
+        function uploadPDF() {
+            let fileInput = document.getElementById("pdfFile");
+            let file = fileInput.files[0];
+
+            if (file) {
+                let list = document.getElementById("pdfList");
+                let li = document.createElement("li");
+
+                let link = document.createElement("a");
+                link.href = URL.createObjectURL(file);
+                link.textContent = file.name;
+                link.target = "_blank";
+
+                li.appendChild(link);
+                list.appendChild(li);
+            }
+        }
+    </script>
+
+</body>
+</html>
